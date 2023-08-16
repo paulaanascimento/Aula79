@@ -38,7 +38,7 @@ class RecipesRepository {
 
     fun findMatchingRecipes(recipes: List<Recipes>, availableIngredients: List<String>): List<Recipes> {
         return recipes.filter { recipe ->
-            availableIngredients.all { ingredient -> recipe.ingredients.contains(ingredient) }
+           recipe.ingredients .all { ingredient -> availableIngredients.contains(ingredient) }
         }
     }
 }
