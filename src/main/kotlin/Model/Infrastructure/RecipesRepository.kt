@@ -36,7 +36,7 @@ class RecipesRepository {
                     "até que as bananas fiquem macias e caramelizadas. Deixe esfriar antes de servir."))
     }
 
-    fun searchRecipe(availableIngredients:ArrayList<String>): List<Recipes> {
+    fun searchRecipe(availableIngredients: List<String>): List<Recipes> {
         return listRecipes.filter { recipe ->
             availableIngredients.all { ingredient -> recipe.ingredients.contains(ingredient) } }
     }
