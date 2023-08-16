@@ -1,9 +1,9 @@
 package Model.Infrastructure
-
 import Model.Domain.Recipes
-
 class RecipesRepository {
-    private val listRecipes=ArrayList<Recipes>()
+    companion object{
+     val listRecipes=ArrayList<Recipes>()
+    }
 
     fun initializeRepository(){
         listRecipes.add(Recipes("Macarrão com Queijo",
@@ -36,8 +36,9 @@ class RecipesRepository {
                     "até que as bananas fiquem macias e caramelizadas. Deixe esfriar antes de servir."))
     }
 
-    fun searchRecipe(availableIngredients: List<String>): List<Recipes> {
-        return listRecipes.filter { recipe ->
-            availableIngredients.all { ingredient -> recipe.ingredients.contains(ingredient) } }
+    fun findMatchingRecipes(recipes: List<Recipes>, availableIngredients: List<String>): List<Recipes> {
+        return recipes.filter { recipe ->
+            availableIngredients.all { ingredient -> recipe.ingredients.contains(ingredient) }
+        }
     }
 }
