@@ -1,11 +1,11 @@
 import Model.Infrastructure.RecipesRepository
-import View.Presentation.recipeView
+import View.Presentation.RecipeView
 
 fun main() {
 
     val repository = RecipesRepository()
     repository.initializeRepository()
-    val recipeView = recipeView()
+    val recipeView = RecipeView()
 
     println("Bem-vindo ao RecipeRadar!")
 
