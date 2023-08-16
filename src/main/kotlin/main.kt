@@ -14,6 +14,7 @@ fun main() {
 
         var entrada: String
         do {
+            println()
             println("Deseja ver outra receita? (S-sim ou N-não)")
             entrada = readln()
         } while (!entrada.equals("S", ignoreCase = true) && !entrada.equals("N", ignoreCase = true))
