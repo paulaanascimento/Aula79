@@ -7,7 +7,9 @@ fun main() {
     repository.initializeRepository()
     val recipeView = RecipeView()
 
-    println("Bem-vindo ao RecipeRadar!")
+    println()
+    println("=====Bem-vindo ao RecipeRadar!=====")
+    println()
 
     while (true) {
         recipeView.receiveInput()
