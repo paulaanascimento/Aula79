@@ -1,11 +1,10 @@
 package ViewModel.Application
-import Model.Infrastructure.RecipesRepository
-import Model.Infrastructure.RecipesRepository.Companion.listRecipes
+import Model.Domain.RecipeSearchUseCase
 
-class RecipeViewModel {
-    var recipe = RecipesRepository()
+class RecipeViewModel(private val recipeSearchUseCase: RecipeSearchUseCase) {
     fun verificationRecipe(ingredients : List<String>): String{
-        val listRecipe = recipe.findMatchingRecipes(listRecipes,ingredients)
+        val listRecipe = recipeSearchUseCase.searchRecipesWithIngredients(ingredients)
+
         return if (listRecipe.isEmpty()) {
             "Nenhuma receita com esses ingredientes encontrada"
         } else {
