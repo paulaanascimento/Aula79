@@ -16,14 +16,14 @@ class RecipesRepositoryTest {
     @Test
     fun testFindMatchingRecipes_EmptyIngredients_ReturnsEmptyList() {
         val availableIngredients = emptyList<String>()
-        val matchingRecipes = repository.findMatchingRecipes(RecipesRepository.listRecipes, availableIngredients)
+        val matchingRecipes = repository.findMatchingRecipes(availableIngredients)
         assertEquals(emptyList<Recipes>(), matchingRecipes)
     }
 
     @Test
     fun testFindMatchingRecipes_ExactMatch_ReturnsMatchingRecipe() {
         val availableIngredients = listOf("macarrão", "queijo", "leite")
-        val matchingRecipes = repository.findMatchingRecipes(RecipesRepository.listRecipes, availableIngredients)
+        val matchingRecipes = repository.findMatchingRecipes(availableIngredients)
         assertEquals(1, matchingRecipes.size)
         assertEquals("Macarrão com Queijo", matchingRecipes[0].name)
     }
@@ -31,7 +31,7 @@ class RecipesRepositoryTest {
     @Test
     fun testFindMatchingRecipes_NoMatch_ReturnsEmptyList() {
         val availableIngredients = listOf("banana", "alface")
-        val matchingRecipes = repository.findMatchingRecipes(RecipesRepository.listRecipes, availableIngredients)
+        val matchingRecipes = repository.findMatchingRecipes(availableIngredients)
         assertEquals(emptyList<Recipes>(), matchingRecipes)
     }
 }

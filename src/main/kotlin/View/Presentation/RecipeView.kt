@@ -2,13 +2,11 @@ package View.Presentation
 
 import ViewModel.Application.RecipeViewModel
 
-class RecipeView {
-    val verification = RecipeViewModel()
+class RecipeView(private val recipeViewModel: RecipeViewModel) {
 
     fun receiveInput() {
-        println("Digite os ingredientes que você possui (somente letras, separados por vírgula):")
-        val result = verification.verificationRecipe(readln().split(",").map { it.trim() })
-        println()
-        println(result)
+        println("\nDigite os ingredientes que você possui (somente letras, separados por vírgula):")
+        val result = recipeViewModel.verificationRecipe(readln().split(",").map { it.trim() })
+        println("\n$result")
     }
 }
